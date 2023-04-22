@@ -13,7 +13,11 @@ with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
 # Visual C++ apparently doesn't respect/know what to do with this flag.
 # Windows users may thus see unused function warnings. Oh well.
 if sys.platform != 'win32':
-    extra_compile_args = ['-Wno-unused-function']
+    extra_compile_args = [
+        '-Wno-unused-function',
+        '-Wno-unreachable-code',
+        '-Wno-deprecated-declarations',
+    ]
 else:
     extra_compile_args = []
 
